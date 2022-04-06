@@ -1,6 +1,6 @@
 {
   "name": "kickstart-chainable-object",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Chainable methods to the Object",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chikalaka/kickstart-chainable-object.git"
+    "url": "git+https://github.com/chikalaka/chainable-object.git"
   },
   "files": [
     "lib/**/*"
@@ -35,9 +35,9 @@
   "author": "Edan Chetrit",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/chikalaka/kickstart-chainable-object/issues"
+    "url": "https://github.com/chikalaka/chainable-object/issues"
   },
-  "homepage": "https://github.com/chikalaka/kickstart-chainable-object#readme",
+  "homepage": "https://github.com/chikalaka/chainable-object#readme",
   "devDependencies": {
     "@types/jest": "^27.4.0",
     "jest": "^27.5.1",

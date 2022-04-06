@@ -1,4 +1,4 @@
-# [kickstart-chainable-object](https://www.npmjs.com/package/kickstart-chainable-object) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/chikalaka/kickstart-chainable-object/blob/main/LICENSE)
+# [kickstart-chainable-object](https://www.npmjs.com/package/kickstart-chainable-object) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/chikalaka/chainable-object/blob/main/LICENSE)
 
 A function that extends `Object` with chainable methods.
 
