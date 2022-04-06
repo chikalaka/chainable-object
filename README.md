@@ -1,4 +1,4 @@
-# [chainable-object](https://www.npmjs.com/package/chainable-object) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/chikalaka/chainable-object/blob/main/LICENSE)
+# [kickstart-chainable-object](https://www.npmjs.com/package/kickstart-chainable-object) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/chikalaka/kickstart-chainable-object/blob/main/LICENSE)
 
 A function that extends `Object` with chainable methods.
 
@@ -7,12 +7,12 @@ Don't expect for functions which are not chainable, i.e. methods which won't ret
 
 ## Installation
 ```shell
-npm install chainable-object
+npm install kickstart-chainable-object
 ```
 
 ## Usage
 ```js
-import _O from 'chainable-object';
+import _O from 'kickstart-chainable-object';
 
 const obj = { a: 1, b: 2, c: 3 }
 
@@ -44,7 +44,7 @@ The `concat` method merges two or more objects.
 Args: one or more objects
 
 ```js
-import _O from 'chainable-object';
+import _O from 'kickstart-chainable-object';
 
 _O({ a: 1, b: { c: 3 } }).concat({ a: 2, d: 4 }) // { a: 1, b: { c: 3 }, d: 4 }
 ```
@@ -53,7 +53,7 @@ _O({ a: 1, b: { c: 3 } }).concat({ a: 2, d: 4 }) // { a: 1, b: { c: 3 }, d: 4 }
 Similar to `Array.prototype.concat`.
 
 ```js
-import _O from 'chainable-object';
+import _O from 'kickstart-chainable-object';
 
 _O({ a: 1, b: { c: 3 } }).filter(v => v > 0) // { a: 1 }
 ```
@@ -64,7 +64,7 @@ Similar to `Array.prototype.concat`.
 The ONLY function which returns void.
 
 ```js
-import _O from 'chainable-object';
+import _O from 'kickstart-chainable-object';
 
 _O({ a: 1, b: { c: 3 } }).forEach((val, key) => {
   // do something
@@ -74,7 +74,7 @@ _O({ a: 1, b: { c: 3 } }).forEach((val, key) => {
 ### log
 Simple, console.log for debugging
 ```js
-import _O from 'chainable-object';
+import _O from 'kickstart-chainable-object';
 
 _O({ a: 1, b: { c: 3 } }).log() // { a: 1, b: { c: 3 } }
 ```
@@ -85,7 +85,7 @@ Map through the object replacing key-value pairs.
 Args: `cb: (key, value) => [key: string | number | symbol, value: any]`
 
 ```js
-import _O from 'chainable-object';
+import _O from 'kickstart-chainable-object';
 
 _O({ a: 1, b: 2 }).map((key, val) => [key.toUpperCase(), val * 2]) // { A: 2, B: 4 }
 ```
@@ -96,7 +96,7 @@ Map through the object replacing keys.
 Args: `cb: (key, value) => string | number | symbol`
 
 ```js
-import _O from 'chainable-object';
+import _O from 'kickstart-chainable-object';
 
 _O({ a: 1, b: 2 }).mapKeys(k => k.toUpperCase()) // { A: 1, B: 2 }
 ```
@@ -107,7 +107,7 @@ Map through the object replacing values.
 Args: `cb: (value, key) => any`
 
 ```js
-import _O from 'chainable-object';
+import _O from 'kickstart-chainable-object';
 
 _O({ a: 1, b: 2 }).mapKeys(v => v * 2) // { a: 2, b: 4 }
 ```
@@ -117,7 +117,7 @@ Remove elements from the object
 
 Args: `((value, key) => boolean)`
 ```js
-import _O from 'chainable-object';
+import _O from 'kickstart-chainable-object';
 
 _O({ a: 1, b: 2 })
   .remove((key, val) => val > 1) // { a: 1 }
@@ -128,7 +128,7 @@ _O({ a: 1, b: 2 })
 Returns the object literal without `ChainableObject` methods
 
 ```js
-import _O from 'chainable-object';
+import _O from 'kickstart-chainable-object';
 
 for (const key in _O({ a: 1 })) console.log(key) // a, log, map, forEach ...
 for (const key in _O({ a: 1 }).val()) console.log(key) // a
