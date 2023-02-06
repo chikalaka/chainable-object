@@ -1,8 +1,7 @@
-class ChainableObject extends Object {
-  private readonly _object: any
+class ChainableObject<TKey extends PropertyKey, TValue extends any> {
+  private readonly _object: Record<TKey, TValue>
 
-  constructor(obj: Object) {
-    super({ ...obj })
+  constructor(obj: Record<TKey, TValue>) {
     this._object = { ...obj }
   }
 
@@ -11,8 +10,8 @@ class ChainableObject extends Object {
     return this
   }
 
-  map = (cb: (key: PropertyKey, val: any) => [key: PropertyKey, val: any]) => {
-    this.forEach((val: any, key: PropertyKey) => {
+  map = (cb: (key: TKey, val: TValue) => [key: TKey, val: TValue]) => {
+    this.forEach((val: TValue, key: TKey) => {
       const [newKey = key, newVal = val] = cb(key, val)
       if (newKey !== key) {
         delete Object.assign(this._object, {
@@ -25,16 +24,18 @@ class ChainableObject extends Object {
     return this
   }
 
-  forEach = (cb: (val: any, key: PropertyKey) => void) => {
-    Object.entries(this._object).forEach(([key, val]) => cb(val, key))
+  forEach = (cb: (val: TValue, key: TKey) => void) => {
+    Object.entries(this._object).forEach(([key, val]) =>
+      cb(val as TValue, key as TKey)
+    )
   }
 
-  mapValues = (cb: (val: any, key: PropertyKey) => any) => {
+  mapValues = (cb: (val: TValue, key: TKey) => TValue) => {
     this.forEach((val, key) => (this._object[key] = cb(val, key)))
     return this
   }
 
-  mapKeys = (cb: (key: PropertyKey, val: any) => string) => {
+  mapKeys = (cb: (key: TKey, val: TValue) => TKey) => {
     this.forEach((val, key) => {
       const newKey = cb(key, val) || key
       if (newKey !== key) {
@@ -58,7 +59,7 @@ class ChainableObject extends Object {
     return this
   }
 
-  filter = (cb: (val: any, key: PropertyKey) => boolean) => {
+  filter = (cb: (val: TValue, key: TKey) => boolean) => {
     this.forEach((val, key) => {
       if (!cb(val, key)) {
         delete this._object[key]
@@ -67,7 +68,7 @@ class ChainableObject extends Object {
     return this
   }
 
-  remove = (cb: (val: any, key: PropertyKey) => boolean) => {
+  remove = (cb: (val: TValue, key: TKey) => boolean) => {
     this.forEach((val, key) => {
       if (cb(val, key)) {
         delete this._object[key]
@@ -77,7 +78,9 @@ class ChainableObject extends Object {
   }
 }
 
-const _O = (obj: Object) => new ChainableObject(obj)
+const _O = <TKey extends PropertyKey, TValue extends any>(
+  obj: Record<TKey, TValue>
+) => new ChainableObject<TKey, TValue>(obj)
 
 export { ChainableObject }
 

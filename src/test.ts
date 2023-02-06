@@ -19,11 +19,9 @@ test("demo", () => {
     c: 3
   }
 
-  const mapped = _O(demoObj)
+  const mapped = _O<string, number>(demoObj)
     .mapValues(v => v * 2) // { a: 2, b: 4, c: 6 }
-    // @ts-ignore
     .mapKeys(k => k.toUpperCase()) // { A: 2, B: 4, C: 6 }
-    // @ts-ignore
     .map((key, val) => [key + key, val + 10]) // { AA: 12, BB: 14, CC: 16 }
     .val()
 
