@@ -51,6 +51,14 @@ class ChainableObject<TKey extends PropertyKey, TValue extends any> {
     return this._object
   }
 
+  values = () => {
+    return Object.values(this._object)
+  }
+
+  keys = () => {
+    return Object.keys(this._object)
+  }
+
   concat = (...objects: Object[]) => {
     objects.forEach(obj => {
       Object.assign(this._object, obj)

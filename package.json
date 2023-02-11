@@ -1,6 +1,6 @@
 {
   "name": "kickstart-chainable-object",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Chainable methods to the Object",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

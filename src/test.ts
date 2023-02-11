@@ -194,3 +194,32 @@ test("remove", () => {
 
   expect(mapped).toEqual(expected)
 })
+
+test("values", () => {
+  const mapped = _O(obj)
+    .remove((val, key) => key === "b")
+    .values()
+
+  const expected = [
+    1,
+    {
+      d: 3,
+      e: {
+        f: 4,
+        g: 5
+      }
+    }
+  ]
+
+  expect(mapped).toEqual(expected)
+})
+
+test("keys", () => {
+  const mapped = _O(obj)
+    .remove((val, key) => key === "b")
+    .keys()
+
+  const expected = ["a", "c"]
+
+  expect(mapped).toEqual(expected)
+})
